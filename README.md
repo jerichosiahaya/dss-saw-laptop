@@ -1,1 +1,1 @@
-Fork it! Then pull.
+Repo for our project in Decision Support System course.
