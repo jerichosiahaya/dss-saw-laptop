@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2021 at 02:57 PM
+-- Generation Time: Apr 07, 2021 at 04:12 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -80,37 +80,37 @@ CREATE TABLE `nilai_kriteria` (
 --
 
 INSERT INTO `nilai_kriteria` (`id_nilai`, `id_kriteria`, `bobot`, `keterangan`) VALUES
-(1, 1, 0.25, '3 - 5 juta'),
-(2, 1, 0.5, '5 - 7 juta'),
-(3, 1, 0.75, '7 - 9 juta'),
-(4, 1, 1, '>= 10 juta'),
-(5, 2, 0.2, 'Intel Pentium'),
-(6, 2, 0.4, 'Intel I3 atau sejenisnya'),
-(7, 2, 0.6, 'Intel I5 atau sejenisnya'),
-(8, 2, 0.8, 'Intel I7 atau sejenisnya'),
-(9, 2, 1, 'Intel I9 atau sejenisnya'),
-(10, 3, 0.2, '1 - 2 GB'),
-(11, 3, 0.4, '4 GB'),
-(12, 3, 0.6, '8 GB'),
-(13, 3, 0.8, '16 GB'),
-(14, 3, 1, '>=32 GB'),
-(15, 4, 0.25, '256 GB'),
-(16, 4, 0.5, '512 GB'),
-(17, 4, 0.75, '1 TB'),
-(18, 4, 1, '>=2 TB'),
-(19, 5, 0.25, 'Tahan 6 jam'),
-(20, 5, 0.5, 'Tahan 8 jam'),
-(21, 5, 0.75, 'Tahan 10 jam'),
-(22, 5, 1, 'Tahan > 12 jam'),
-(23, 6, 0.25, 'Tidak memakai VGA Card'),
-(24, 6, 0.5, 'NVIDIA seri GeForce atau sejenisnya'),
-(25, 6, 0.75, 'Nvidia Seri GTX atau sejenisnya'),
-(26, 6, 1, 'NVIDIA Seri RTX atau sejenisnya'),
-(27, 7, 0.2, '11 inch'),
-(28, 7, 0.4, '12 inch'),
-(29, 7, 0.6, '13 inch'),
-(30, 7, 0.8, '14 inch'),
-(31, 7, 1, '15 inch');
+(1, 1, 1, '3 - 5 juta'),
+(2, 1, 2, '5 - 7 juta'),
+(3, 1, 3, '7 - 9 juta'),
+(4, 1, 4, '> 10 juta'),
+(5, 2, 1, 'Intel Pentium'),
+(6, 2, 2, 'I3 atau sejenisnya'),
+(7, 2, 3, 'I5 atau sejenisnya'),
+(8, 2, 4, 'i7 atau sejenisnya'),
+(9, 2, 5, 'i9 atau sejenisnya'),
+(10, 3, 2, '1 - 2 GB'),
+(11, 3, 4, '4 GB'),
+(12, 3, 8, '8 GB'),
+(13, 3, 16, '16 GB'),
+(14, 3, 32, '>=32 GB'),
+(15, 4, 256, '256 GB'),
+(16, 4, 512, '512 GB'),
+(17, 4, 1000, '1 TB'),
+(18, 4, 2000, '>=2 TB'),
+(19, 5, 6, 'Tahan 6 jam'),
+(20, 5, 8, 'Tahan 8 jam'),
+(21, 5, 10, 'Tahan 10 jam'),
+(22, 5, 12, 'Tahan > 12 jam'),
+(23, 6, 1, 'Tidak memakai VGA Card'),
+(24, 6, 2, 'NVIDIA seri GeForce atau sejenisnya'),
+(25, 6, 3, 'Nvidia Seri GTX atau sejenisnya'),
+(26, 6, 4, 'NVIDIA Seri RTX atau sejenisnya'),
+(27, 7, 11, '11 inch'),
+(28, 7, 12, '12 inch'),
+(29, 7, 13, '13 inch'),
+(30, 7, 14, '14 inch'),
+(31, 7, 15, '15 inch');
 
 -- --------------------------------------------------------
 
