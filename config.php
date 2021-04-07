@@ -7,4 +7,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname) or die("Conne
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
     exit();
+} else {
+    printf("Database is okay, and you're awesome!");
 }
