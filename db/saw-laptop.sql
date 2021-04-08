@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2021 at 04:12 PM
+-- Generation Time: Apr 08, 2021 at 03:01 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -30,8 +30,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alternatif` (
   `id_alternatif` int(11) NOT NULL,
-  `id_nilai` int(11) NOT NULL,
-  `id_kriteria` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `id_pengguna` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -61,6 +59,19 @@ INSERT INTO `kriteria` (`id_kriteria`, `nama`, `sifat`, `weight`) VALUES
 (5, 'Battery Life', 'benefit', 0.1),
 (6, 'VGA Card', 'benefit', 0.15),
 (7, 'Layar', 'benefit', 0.1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nilai_alternatif`
+--
+
+CREATE TABLE `nilai_alternatif` (
+  `id_nilai_alternatif` int(11) NOT NULL,
+  `id_alternatif` int(11) NOT NULL,
+  `id_kriteria` int(11) NOT NULL,
+  `id_nilai` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -133,9 +144,6 @@ CREATE TABLE `pengguna` (
 --
 ALTER TABLE `alternatif`
   ADD PRIMARY KEY (`id_alternatif`),
-  ADD UNIQUE KEY `nama` (`nama`),
-  ADD KEY `id_nilai` (`id_nilai`),
-  ADD KEY `id_kriteria` (`id_kriteria`),
   ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
@@ -143,6 +151,15 @@ ALTER TABLE `alternatif`
 --
 ALTER TABLE `kriteria`
   ADD PRIMARY KEY (`id_kriteria`);
+
+--
+-- Indexes for table `nilai_alternatif`
+--
+ALTER TABLE `nilai_alternatif`
+  ADD PRIMARY KEY (`id_nilai_alternatif`),
+  ADD KEY `id_alternatif` (`id_alternatif`),
+  ADD KEY `id_kriteria` (`id_kriteria`),
+  ADD KEY `id_nilai` (`id_nilai`);
 
 --
 -- Indexes for table `nilai_kriteria`
@@ -174,6 +191,12 @@ ALTER TABLE `kriteria`
   MODIFY `id_kriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `nilai_alternatif`
+--
+ALTER TABLE `nilai_alternatif`
+  MODIFY `id_nilai_alternatif` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `nilai_kriteria`
 --
 ALTER TABLE `nilai_kriteria`
@@ -193,9 +216,15 @@ ALTER TABLE `pengguna`
 -- Constraints for table `alternatif`
 --
 ALTER TABLE `alternatif`
-  ADD CONSTRAINT `alternatif_ibfk_1` FOREIGN KEY (`id_nilai`) REFERENCES `nilai_kriteria` (`id_nilai`),
-  ADD CONSTRAINT `alternatif_ibfk_2` FOREIGN KEY (`id_kriteria`) REFERENCES `kriteria` (`id_kriteria`),
-  ADD CONSTRAINT `alternatif_ibfk_3` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`);
+  ADD CONSTRAINT `alternatif_ibfk_1` FOREIGN KEY (`id_pengguna`) REFERENCES `pengguna` (`id_pengguna`);
+
+--
+-- Constraints for table `nilai_alternatif`
+--
+ALTER TABLE `nilai_alternatif`
+  ADD CONSTRAINT `nilai_alternatif_ibfk_1` FOREIGN KEY (`id_alternatif`) REFERENCES `alternatif` (`id_alternatif`),
+  ADD CONSTRAINT `nilai_alternatif_ibfk_2` FOREIGN KEY (`id_kriteria`) REFERENCES `kriteria` (`id_kriteria`),
+  ADD CONSTRAINT `nilai_alternatif_ibfk_3` FOREIGN KEY (`id_nilai`) REFERENCES `nilai_kriteria` (`id_nilai`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
