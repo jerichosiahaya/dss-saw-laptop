@@ -9,6 +9,7 @@ while ($user_data = mysqli_fetch_array($query)) {
     $id = $user_data['id_pengguna'];
 }
 if ($username_db == $username && password_verify($password, $password_db)) {
+    session_start();
     $_SESSION['username'] = $username_db;
     $_SESSION['id'] = $id;
     header('Location: index.php');

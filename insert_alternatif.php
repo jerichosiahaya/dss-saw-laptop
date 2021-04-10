@@ -12,7 +12,7 @@ include("config.php");
 
 <body>
     <h2>Halaman Input</h2>
-    <form action="create.php" method="post">
+    <form action="insert_alternatif.php" method="post">
         <a href="index.php">Kembali ke Beranda</a>
         <br></br>
         <label>Masukkan nama laptop:</label>
