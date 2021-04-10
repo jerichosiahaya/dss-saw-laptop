@@ -36,6 +36,7 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
         <button type="submit" id="simpan" name="submit">Submit</button>
     </form>
     <a href="kriteria.php">Kriteria</a>
+    <a href="insert_nilai_alternatif.php">Nilai alternatif</a>
     <script>
         $(document).ready(function() {
 
