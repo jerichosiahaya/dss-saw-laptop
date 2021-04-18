@@ -36,13 +36,6 @@ require_once 'header.php';
     <?php
     include 'footer.php';
     ?>
-    <script>
-        $(document).ready(function() {
-            $('#register').on('click', function() {
-                $('#loader').fadeIn(300).show().delay(300).fadeOut();
-            });
-        });
-    </script>
 </body>
 
 </html>
