@@ -30,19 +30,22 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
             ?>
     </table>
     <button id="tambah">Add</button>
-    <form action="" id="save" method="post" hidden>
-        <label>Masukkan nama laptop:</label>
-        <input type="text" id="nama" name="nama" placeholder="Nama Laptop" required>
-        <button type="submit" id="simpan" name="submit">Submit</button>
-    </form>
+    <div class="toggle-forms">
+        <form action="" id="save" method="post">
+            <label>Masukkan nama laptop:</label>
+            <input type="text" id="nama" name="nama" placeholder="Nama Laptop" required>
+            <button type="submit" id="simpan" name="submit">Submit</button>
+        </form>
+    </div>
     <a href="kriteria.php">Kriteria</a>
     <a href="insert_nilai_alternatif.php">Nilai alternatif</a>
     <a href="logout.php">Logout</a>
+
     <script>
         $(document).ready(function() {
 
             $('#tambah').on('click', function() {
-                $('#save').toggle('fast');
+                $('.toggle-forms').toggle('fast');
                 // $(this).toggleClass('button-warning'); // to change button color, just in case
                 $(this).text(function(i, v) {
                     return v === 'Add' ? 'Cancel' : 'Add'

@@ -50,6 +50,10 @@ footer {
     /* overflow-y: hidden; */
 }
 
+.toggle-forms {
+    display: none;
+}
+
 /* RESPONSIVE CODE GOES HERE */
 
 /* Smartphones (portrait and landscape) ----------- */
