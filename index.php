@@ -37,6 +37,7 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
     </form>
     <a href="kriteria.php">Kriteria</a>
     <a href="insert_nilai_alternatif.php">Nilai alternatif</a>
+    <a href="logout.php">Logout</a>
     <script>
         $(document).ready(function() {
 
