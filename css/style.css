@@ -1,0 +1,133 @@
+.fluid-box {
+    width: auto;
+    border: 1px black solid;
+}
+
+.img-header-register {
+    width: 20%;
+}
+
+.form-register {
+    width: 30%;
+    margin: auto;
+    border-radius: 1%;
+    border: 1px rgb(182, 182, 182) solid;
+    padding: 1em;
+    padding-bottom: 2em;
+    -webkit-box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+    -moz-box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+    box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+}
+
+.btn-register {
+    width: 100%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    color: rgb(153, 153, 153);
+}
+
+/* RESPONSIVE CODE GOES HERE */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    .img-header-register {
+        width: 80%;
+    }
+
+    .form-register {
+        width: 90%;
+        margin: auto;
+        border-radius: 1%;
+        border: 1px rgb(182, 182, 182) solid;
+        padding: 1em;
+        padding-bottom: 2em;
+        -webkit-box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+        -moz-box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+        box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+    }
+
+}
+
+/* Smartphones (landscape) Iphone XL ----------- */
+@media only screen and (width : 823px) and (height : 411px) and (orientation: landscape) {
+    .img-header-register {
+        width: 80%;
+    }
+
+    .form-register {
+        width: 90%;
+        margin: auto;
+        border-radius: 1%;
+        border: 1px rgb(182, 182, 182) solid;
+        padding: 1em;
+        padding-bottom: 2em;
+        margin-bottom: 3em;
+        -webkit-box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+        -moz-box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+        box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+    }
+}
+
+/* Smartphones (landscape) Iphone 5 ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+
+    .img-header-register {
+        width: 80%;
+    }
+
+    .form-register {
+        width: 90%;
+        margin: auto;
+        border-radius: 1%;
+        border: 1px rgb(182, 182, 182) solid;
+        padding: 1em;
+        padding-bottom: 2em;
+        margin-bottom: 3em;
+        -webkit-box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+        -moz-box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+        box-shadow: -2px 42px 75px 2px rgba(0, 0, 0, 0.09);
+    }
+}
+
+/* IGNORE EVERYTHING BELOW IF YOU DON'T WANNA USE IT */
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    /* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) {
+    /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) {
+    /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1024px) and (orientation : portrait) {
+    /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+    /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+    /* Styles */
+}
