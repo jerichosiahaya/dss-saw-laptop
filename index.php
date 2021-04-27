@@ -12,35 +12,88 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
  -->
 
 <head>
-    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Laptopp</title>
 </head>
 
 <body>
-    <table>
-        <thead>
-            <tr>
-                <th>Nama Produk</th>
-            </tr>
-            <?php
-            while ($data = mysqli_fetch_array($result)) {
-                echo "<tr>";
-                echo "<td>" . $data['nama'] . "</td>";
-                echo "<td><a href='update.php'><button name='submit'>Ubah</button></a> | <a href='delete.php'><button name='delete'>Hapus</button></a></td></tr>"; //belum bisa ditekan
-            }
-            ?>
-    </table>
-    <button id="tambah">Add</button>
-    <div class="toggle-forms">
-        <form action="" id="save" method="post">
-            <label>Masukkan nama laptop:</label>
-            <input type="text" id="nama" name="nama" placeholder="Nama Laptop" required>
-            <button type="submit" id="simpan" name="submit">Submit</button>
-        </form>
-    </div>
-    <a href="kriteria.php">Kriteria</a>
-    <a href="insert_nilai_alternatif.php">Nilai alternatif</a>
-    <a href="logout.php">Logout</a>
 
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.ibb.co/mRgTp8V/laptopp.png" alt="" width="100" height="29">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#">Github</a>
+                </div>
+            </div>
+            <span class="navbar-text">
+                <a href="logout.php">LOGOUT</a>
+            </span>
+        </div>
+    </nav>
+    <!-- navbar -->
+
+
+    <div class="container mt-4">
+
+        <h5 class="mb-3"><em style="color: grey; font-style:normal"> Welcome back, </em><?php echo $username; ?></h5>
+
+        <!-- tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Alternatif</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="kriteria.php">Kriteria</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="insert_nilai_alternatif.php">Nilai Alternatif</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hasil</a>
+            </li>
+        </ul>
+        <!-- tabs -->
+
+
+        <!-- <div class="card p-2">Lorem Ipsum Dolor Sit Amet</div> -->
+        <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+            Masukkan merk laptop yang diinginkan
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Merk Laptop</th>
+                    <th scope="col"></th>
+                </tr>
+                <?php
+                while ($data = mysqli_fetch_array($result)) {
+                    echo "<tr>";
+                    echo "<td>" . $data['nama'] . "</td>";
+                    echo "<td><a href='update.php'><button type='button' class='btn btn-primary' name='submit'>Ubah</button></a> | <a href='delete.php'><button type='button' class='btn btn-danger' name='delete'>Hapus</button></a></td></tr>"; //belum bisa ditekan
+                }
+                ?>
+        </table>
+        <button class='btn btn-secondary' id="tambah">Add</button>
+        <div class="toggle-forms">
+            <form action="" id="save" method="post">
+                <label>Masukkan nama laptop:</label>
+                <input type="text" id="nama" name="nama" placeholder="Nama Laptop" required>
+                <button type="submit" class='btn btn-success' id="simpan" name="submit">Submit</button>
+            </form>
+        </div>
+    </div>
     <script>
         $(document).ready(function() {
 
