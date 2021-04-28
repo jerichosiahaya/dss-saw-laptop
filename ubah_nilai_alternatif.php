@@ -9,8 +9,6 @@ $query4 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 
 $query5 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 5");
 $query6 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 6");
 $query7 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 7");
-$query_kriteria = mysqli_query($conn, "SELECT * FROM `kriteria`") or die(mysqli_error());
-$jumlah_kriteria = mysqli_num_rows($query_kriteria);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,65 +72,128 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
         </ul>
         <!-- tabs -->
 
-        <table class="table mt-4">
-            <tr>
-                <th rowspan="2">Alternatif Laptop</th>
 
-            <tr>
-                <?php
-                $kriteria = mysqli_query($conn, "SELECT * FROM `kriteria`") or die(mysqli_error());
-                while ($data = mysqli_fetch_array($kriteria)) {
-                ?>
-                    <th>
-                        <?php echo $data['nama']; ?></th>
+        <form action="" id="option_laptop" name="option_laptop" class="mt-4">
 
-                <?php } ?>
-            </tr>
-
-            <?php
-            $alternatif = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id");
-            while ($data = mysqli_fetch_array($alternatif)) {
-            ?>
-                <tr>
-                    <td>
-                        <?php echo $data['nama']; ?>
-                    </td>
-                    <?php
-                    $id = $data['id_alternatif'];
-                    $nilai_alternatif = mysqli_query($conn, "select nilai_alternatif.*, nilai_kriteria.*from nilai_alternatif join nilai_kriteria on nilai_kriteria.id_nilai = nilai_alternatif.id_nilai where  nilai_alternatif.id_alternatif = $id");
-                    while ($data =  mysqli_fetch_array($nilai_alternatif)) { ?>
-                        <td>
-                            <?php echo $data['keterangan']; ?>
-                        </td>
-
-                    <?php } ?>
-                </tr>
-            <?php } ?>
-
-        </table>
-
-        <!-- <table class="table mt-3">
-            <thead>
-                <tr>
-                    <th scope="col">Merk Laptop</th>
-                    <th scope="col">Processor</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">RAM</th>
-                    <th scope="col">HDD</th>
-                    <th scope="col">Baterai</th>
-                    <th scope="col">VGA</th>
-                    <th scope="col">Layar</th>
-                </tr>
+            <!-- option select -->
+            <label for="laptop" class="mb-3">Laptop:</label>
+            <select class="form-select select-alternative" style="width:50%;" name="choose_laptop" id="laptop">
+                <option value="" disabled selected>---</option>
                 <?php
                 while ($data = mysqli_fetch_array($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $data['nama'] . "</td>";
-                    //echo "<td><a href='update.php'><button type='button' class='btn btn-primary' name='submit'>Ubah</button></a> | <a href='delete.php'><button type='button' class='btn btn-danger' name='delete'>Hapus</button></a></td></tr>"; //belum bisa ditekan
+                ?>
+                    <option value="<?php echo $data['id_alternatif']; ?>"><?php echo $data['nama']; ?></option>
+                <?php
                 }
                 ?>
-        </table> -->
+            </select>
+            <!-- option select -->
 
-        <a href="ubah_nilai_alternatif.php"><button type="button" class="btn btn-primary">Ubah Nilai Alternatif</button></a>
+            <input type="submit" class="btn btn-primary mt-3" id="submit" value="Submit">
+
+            <br><br>
+            <div id="form_n" hidden>
+
+                <!-- harga -->
+                <select class="form-select select-alternative" style="width:50%;" name="n1" id="n1">
+                    <option value="" disabled selected>---</option>
+                    <?php
+                    while ($n1 = mysqli_fetch_array($query1)) {
+                    ?>
+                        <option value="<?php echo $n1['id_nilai']; ?>"><?php echo $n1['keterangan']; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <!-- harga -->
+                <br><br>
+
+                <!-- processor -->
+                <select class="form-select select-alternative" style="width:50%;" name="n2" id="n2">
+                    <option value="" disabled selected>---</option>
+                    <?php
+                    while ($n2 = mysqli_fetch_array($query2)) {
+                    ?>
+                        <option value="<?php echo $n2['id_nilai']; ?>"><?php echo $n2['keterangan']; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <!-- processor -->
+                <br><br>
+
+                <!-- ram -->
+                <select class="form-select select-alternative" style="width:50%;" name="n3" id="n3">
+                    <option value="" disabled selected>---</option>
+                    <?php
+                    while ($n3 = mysqli_fetch_array($query3)) {
+                    ?>
+                        <option value="<?php echo $n3['id_nilai']; ?>"><?php echo $n3['keterangan']; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <!-- ram -->
+                <br><br>
+
+                <!-- hdd -->
+                <select class="form-select select-alternative" style="width:50%;" name="n4" id="n4">
+                    <option value="" disabled selected>---</option>
+                    <?php
+                    while ($n4 = mysqli_fetch_array($query4)) {
+                    ?>
+                        <option value="<?php echo $n4['id_nilai']; ?>"><?php echo $n4['keterangan']; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <!-- hdd -->
+                <br><br>
+
+                <!-- baterai -->
+                <select class="form-select select-alternative" style="width:50%;" name="n5" id="n5">
+                    <option value="" disabled selected>---</option>
+                    <?php
+                    while ($n5 = mysqli_fetch_array($query5)) {
+                    ?>
+                        <option value="<?php echo $n5['id_nilai']; ?>"><?php echo $n5['keterangan']; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <!-- baterai -->
+                <br><br>
+
+                <!-- vga -->
+                <select class="form-select select-alternative" style="width:50%;" name="n6" id="n6">
+                    <option value="" disabled selected>---</option>
+                    <?php
+                    while ($n6 = mysqli_fetch_array($query6)) {
+                    ?>
+                        <option value="<?php echo $n6['id_nilai']; ?>"><?php echo $n6['keterangan']; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <!-- vga -->
+                <br><br>
+
+                <!-- layar -->
+                <select class="form-select select-alternative" style="width:50%;" name="n7" id="n7">
+                    <option value="" disabled selected>---</option>
+                    <?php
+                    while ($n7 = mysqli_fetch_array($query7)) {
+                    ?>
+                        <option value="<?php echo $n7['id_nilai']; ?>"><?php echo $n7['keterangan']; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+                <!-- layar -->
+
+            </div>
+            <button id="tes">TEST</button>
+        </form>
     </div>
 
     <script>
