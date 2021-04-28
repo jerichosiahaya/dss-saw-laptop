@@ -54,6 +54,10 @@ footer {
     display: none;
 }
 
+.select-alternative {
+    width: 10px;
+}
+
 /* RESPONSIVE CODE GOES HERE */
 
 /* Smartphones (portrait and landscape) ----------- */
