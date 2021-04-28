@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `alternatif` (
   `id_alternatif` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `id_pengguna` int(11) NOT NULL
+  `id_pengguna` int(11) NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -184,7 +184,7 @@ INSERT INTO `nilai_kriteria` (`id_nilai`, `id_kriteria`, `bobot`, `keterangan`) 
 --
 
 CREATE TABLE `pengguna` (
-  `id_pengguna` int(11) NOT NULL,
+  `id_pengguna` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -232,7 +232,6 @@ ALTER TABLE `nilai_kriteria`
 -- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  ADD PRIMARY KEY (`id_pengguna`),
   ADD UNIQUE KEY `username` (`username`);
 
 --

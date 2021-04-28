@@ -80,7 +80,7 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
 
             <tr>
                 <?php
-                $kriteria = mysqli_query($conn, "SELECT * FROM `kriteria`") or die(mysqli_error());
+                $kriteria = mysqli_query($conn, "SELECT * FROM `kriteria` WHERE id_pengguna = $id ") or die(mysqli_error());
                 while ($data = mysqli_fetch_array($kriteria)) {
                 ?>
                     <th>
