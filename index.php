@@ -2,6 +2,9 @@
 require_once 'session.php';
 include_once 'header.php';
 $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id");
+// $queryCheckSUM = "select sum(weight) as total from kriteria where id_pengguna = $id";
+// $result1 = mysqli_query($conn, $queryCheckSUM);
+// $tes = mysqli_fetch_assoc($result1);
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +22,10 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
 </head>
 
 <body>
+
+    <!-- <?php
+            echo $tes['total'];
+            ?> -->
 
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">

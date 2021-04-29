@@ -1,3 +1,8 @@
+<?php
+$queryCheckSUM = "select sum(weight) as total from kriteria where id_pengguna = $id";
+$result = mysqli_query($conn, $queryCheckSUM);
+$isMoreThan1 = mysqli_fetch_assoc($result);
+?>
 <div class="modal fade" id="update_modal<?php echo $data['id_kriteria'] ?>" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -16,7 +21,7 @@
 						<div class="form-group mt-3">
 							<label class="mb-2">Sifat Kriteria</label>
 							<!-- <input type="text" name="sifat" value="<?php echo $data['sifat'] ?>" class="form-control" required="required" /> -->
-							<select class="form-select" name="sifat">
+							<select class="form-select" name="sifat" required>
 								<option disabled selected><?php echo $data['sifat'] ?></option>
 								<option value="cost">Cost</option>
 								<option value="benefit">Benefit</option>
@@ -25,6 +30,10 @@
 						<div class="form-group mt-3">
 							<label class="mb-2">Bobot Kriteria</label>
 							<input type="text" name="weight" value="<?php echo $data['weight'] ?>" class="form-control" required="required" />
+						</div>
+						<div class="form-group mt-3">
+							<label class="mb-2">Total Bobot Keseluruhan</label>
+							<input type="text" id="total_weight" name="total_weight" value="<?php echo $isMoreThan1['total'] ?>" class="form-control" disabled />
 						</div>
 					</div>
 				</div>

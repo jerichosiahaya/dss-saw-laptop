@@ -1,6 +1,9 @@
 <?php
 require_once 'session.php';
 include_once 'header.php';
+$queryCheckSUM = "select sum(weight) as total from kriteria where id_pengguna = $id";
+$result1 = mysqli_query($conn, $queryCheckSUM);
+$tes = mysqli_fetch_assoc($result1);
 ?>
 
 
@@ -14,6 +17,7 @@ include_once 'header.php';
 
 <body>
 
+	<input type="text" id="total_bobot" value="<?php echo $tes['total']; ?>" hidden>
 	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container">
@@ -85,9 +89,16 @@ include_once 'header.php';
 				?>
 			</tbody>
 		</table>
-
+		<p>Total weight: <b id="totalWgth"></b></p>
 	</div>
-
+	<script>
+		$(document).ready(function() {
+			totalWeight = $('#total_bobot').val();
+			totalWeightMath = Math.floor(totalWeight);
+			//alert(totalWeightMath);
+			$('#totalWgth').text(totalWeightMath);
+		});
+	</script>
 </body>
 
 </html>
