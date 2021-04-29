@@ -74,6 +74,7 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
         </ul>
         <!-- tabs -->
 
+
         <table class="table mt-4">
             <tr>
                 <th rowspan="2">Alternatif Laptop</th>
@@ -83,10 +84,9 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
                 $kriteria = mysqli_query($conn, "SELECT * FROM `kriteria` WHERE id_pengguna = $id ") or die(mysqli_error());
                 while ($data = mysqli_fetch_array($kriteria)) {
                 ?>
-                    <th>
-                        <?php echo $data['nama']; ?></th>
-
-                <?php } ?>
+                    <th><?php echo $data['nama']; ?></th>
+                <?php }  ?>
+                <th>Action</th>
             </tr>
 
             <?php
@@ -94,18 +94,14 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
             while ($data = mysqli_fetch_array($alternatif)) {
             ?>
                 <tr>
-                    <td>
-                        <?php echo $data['nama']; ?>
-                    </td>
+                    <td><?php echo $data['nama']; ?></td>
                     <?php
                     $id = $data['id_alternatif'];
                     $nilai_alternatif = mysqli_query($conn, "select nilai_alternatif.*, nilai_kriteria.*from nilai_alternatif join nilai_kriteria on nilai_kriteria.id_nilai = nilai_alternatif.id_nilai where  nilai_alternatif.id_alternatif = $id");
                     while ($data =  mysqli_fetch_array($nilai_alternatif)) { ?>
-                        <td>
-                            <?php echo $data['keterangan']; ?>
-                        </td>
-
+                        <td><?php echo $data['keterangan']; ?></td>
                     <?php } ?>
+                    <td><a href="update_nilai_alternatif.php?id_alternatif=<?php echo $id; ?>"><button type="button" class="btn btn-secondary">EDIT</button></a></td>
                 </tr>
             <?php } ?>
 
@@ -133,6 +129,7 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
         </table> -->
 
         <a href="ubah_nilai_alternatif.php"><button type="button" class="btn btn-primary">Ubah Nilai Alternatif</button></a>
+        <a href="update_nilai_alternatif.php"><button type="button" class="btn btn-light">Update Nilai Alternatif</button></a>
     </div>
 
     <script>

@@ -101,6 +101,9 @@ $tes = mysqli_fetch_assoc($result1);
 			totalWeightMath = Math.floor(totalWeight * 100) / 100;
 			//alert(totalWeightMath);
 			$('#totalWgth').text(totalWeightMath);
+			//$('#total_weight').val(totalWeightMath);
+			var myBookId = $(this).data('id');
+			$("#total_weight #bookId").val(myBookId);
 		});
 	</script>
 </body>

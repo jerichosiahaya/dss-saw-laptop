@@ -17,7 +17,11 @@
 							<label class="mb-2">Sifat Kriteria</label>
 							<!-- <input type="text" name="sifat" value="<?php echo $data['sifat'] ?>" class="form-control" required="required" /> -->
 							<select class="form-select" name="sifat">
+<<<<<<< Updated upstream
 								<option  hidden selected="true"><?php echo $data['sifat'] ?></option>
+=======
+								<option hidden selected="true"><?php echo $data['sifat'] ?></option>
+>>>>>>> Stashed changes
 								<option value="cost">cost</option>
 								<option value="benefit">benefit</option>
 							</select>
