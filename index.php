@@ -2,6 +2,9 @@
 require_once 'session.php';
 include_once 'header.php';
 $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id");
+
+
+
 // $queryCheckSUM = "select sum(weight) as total from kriteria where id_pengguna = $id";
 // $result1 = mysqli_query($conn, $queryCheckSUM);
 // $tes = mysqli_fetch_assoc($result1);
@@ -86,11 +89,16 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
                 </tr>
                 <?php
                 while ($data = mysqli_fetch_array($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $data['nama'] . "</td>";
-                    echo "<td><a href='update.php'><button type='button' class='btn btn-primary' name='submit'>Ubah</button></a> | <a href='delete.php'><button type='button' class='btn btn-danger' name='delete'>Hapus</button></a></td></tr>"; //belum bisa ditekan
-                }
-                ?>
+                        ?>
+                            <tr>
+                                <td><?php echo $data['nama'] ?></td>
+                                <td><button class="btn btn-secondary" data-bs-toggle="modal" type="button" data-bs-target="#update_modal<?php echo $data['id_alternatif'] ?>"><span class="glyphicon glyphicon-edit"></span> <i class="fas fa-edit"></i> Edit</button> |  <a href='delete_alternatif.php?id_alternatif=<?php echo $data['id_alternatif'];?>'><button type='button' class='btn btn-danger' name='delete'><span class="glyphicon glyphicon-edit"></span> <i class="fas fa-trash"></i> Hapus</button></a></td>
+                            </tr>
+                        <?php
+        
+                            include 'update_nama_alternatif_modal.php';
+                        }
+                        ?>
         </table>
         <button class='btn btn-secondary' id="tambah">Add</button>
         <div class="toggle-forms">
