@@ -128,8 +128,8 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
                 ?>
         </table> -->
 
-        <a href="ubah_nilai_alternatif.php"><button type="button" class="btn btn-primary">Ubah Nilai Alternatif</button></a>
-        <a href="update_nilai_alternatif.php"><button type="button" class="btn btn-light">Update Nilai Alternatif</button></a>
+        <a href="insert_isi_nilai_alternatif.php"><button type="button" class="btn btn-primary">Insert Nilai Alternatif</button></a>
+        <!-- <a href="update_nilai_alternatif.php"><button type="button" class="btn btn-light">Update Nilai Alternatif</button></a> -->
     </div>
 
     <script>
