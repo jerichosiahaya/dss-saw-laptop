@@ -26,10 +26,6 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
 
 <body>
 
-    <!-- <?php
-            echo $tes['total'];
-            ?> -->
-
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -55,9 +51,7 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
 
 
     <div class="container mt-4">
-
         <h5 class="mb-3"><em style="color: grey; font-style:normal"> Welcome back, </em><?php echo $username; ?></h5>
-
         <!-- tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -76,10 +70,8 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
         <!-- tabs -->
 
 
-        <!-- <div class="card p-2">Lorem Ipsum Dolor Sit Amet</div> -->
         <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
-            Masukkan merk laptop yang diinginkan
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            Masukkan merk laptop yang diinginkan<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <table class="table mt-3">
             <thead>
@@ -95,7 +87,6 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
                         <td><button class="btn btn-secondary" data-bs-toggle="modal" type="button" data-bs-target="#update_modal<?php echo $data['id_alternatif'] ?>"><span class="glyphicon glyphicon-edit"></span> <i class="fas fa-edit"></i> Edit</button> | <a href='delete_alternatif.php?id_alternatif=<?php echo $data['id_alternatif']; ?>'><button type='button' class='btn btn-danger' name='delete'><span class="glyphicon glyphicon-edit"></span> <i class="fas fa-trash"></i> Hapus</button></a></td>
                     </tr>
                 <?php
-
                     include 'update_nama_alternatif_modal.php';
                 }
                 ?>
