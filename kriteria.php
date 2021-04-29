@@ -94,7 +94,7 @@ $tes = mysqli_fetch_assoc($result1);
 	<script>
 		$(document).ready(function() {
 			totalWeight = $('#total_bobot').val();
-			totalWeightMath = Math.floor(totalWeight);
+			totalWeightMath = Math.floor(totalWeight * 100) / 100;
 			//alert(totalWeightMath);
 			$('#totalWgth').text(totalWeightMath);
 		});
