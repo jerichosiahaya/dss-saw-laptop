@@ -90,6 +90,10 @@ $tes = mysqli_fetch_assoc($result1);
 			</tbody>
 		</table>
 		<p>Total weight: <b id="totalWgth"></b></p>
+		<div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+            Total Weight harus Memiliki nilai 1.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
 	</div>
 	<script>
 		$(document).ready(function() {
