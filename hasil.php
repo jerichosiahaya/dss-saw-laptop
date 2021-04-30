@@ -2,7 +2,7 @@
 require_once 'session.php';
 include_once 'header.php';
 require 'config.php';
-$query_kriteria = mysqli_query($conn, "SELECT * FROM `kriteria`") or die(mysqli_error());
+$query_kriteria = mysqli_query($conn, "SELECT * FROM `kriteria` where id_pengguna = $id") or die(mysqli_error());
 $jumlah_kriteria = mysqli_num_rows($query_kriteria);
 ?>
 <!DOCTYPE html>
