@@ -71,7 +71,7 @@ if (isset($_SESSION['welcome'])) {
         <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
             Masukkan merk laptop yang diinginkan<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <table class="table mt-3">
+        <table class="table table-hover mt-3">
             <thead>
                 <tr>
                     <th scope="col">Merk Laptop</th>
