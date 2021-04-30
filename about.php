@@ -45,4 +45,6 @@ require 'session.php';
     </div>
 </body>
 
+<?php require 'footer.php'; ?>
+
 </html>
