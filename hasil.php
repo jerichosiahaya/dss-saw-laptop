@@ -13,32 +13,12 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
 </head>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="https://i.ibb.co/mRgTp8V/laptopp.png" alt="" width="100" height="29">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                <a class="nav-link" href="#">About</a>
-                <a class="nav-link" href="#">Github</a>
-            </div>
-        </div>
-        <span class="navbar-text">
-            <a href="logout.php">LOGOUT</a>
-        </span>
-    </div>
-</nav>
-<!-- navbar -->
 
 <body>
 
-    <div class="container mt-4">
+    <?php require 'navbar.php'; ?>
 
+    <div class="container mt-4">
         <!-- tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -68,14 +48,14 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
                 <button class="nav-link btn" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Pembobotan</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link btn" id="pills-result-tab" data-bs-toggle="pill" data-bs-target="#pills-result" type="button" role="tab" aria-controls="pills-result" aria-selected="false">Result</button>
+                <button class="nav-link btn" id="pills-result-tab" data-bs-toggle="pill" data-bs-target="#pills-result" type="button" role="tab" aria-controls="pills-result" aria-selected="false">Hasil Rank</button>
             </li>
         </ul>
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <!-- alternatif dan kriteria, belum ada perhitungan -->
                 <h5 class="text-center text-upper"> <u> DAFTAR ALTERNATIF DAN KRITERIA </u></h5>
-                <table class="table table-hover mt-4">
+                <table class="table table-hover table-bordered mt-4">
                     <tr>
                         <th rowspan="2">Alternatif Laptop</th>
                     <tr>
@@ -115,7 +95,7 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <!-- normalisasi -->
                 <h5 class="text-center"><u> NORMALISASI </u></h5>
-                <table class="table table-hover mt-4">
+                <table class="table table-hover table-bordered mt-4">
                     <tr>
                         <th rowspan="2">Alternatif Laptop</th>
                     <tr>

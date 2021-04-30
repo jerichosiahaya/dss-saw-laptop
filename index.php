@@ -31,30 +31,12 @@ if (isset($_SESSION['welcome'])) {
 <body>
 
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="https://i.ibb.co/mRgTp8V/laptopp.png" alt="" width="100" height="29">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="#">About</a>
-                    <a class="nav-link" href="#">Github</a>
-                </div>
-            </div>
-            <span class="navbar-text">
-                <a href="logout.php">LOGOUT</a>
-            </span>
-        </div>
-    </nav>
+    <?php require 'navbar.php'; ?>
     <!-- navbar -->
 
-
     <div class="container mt-4">
+
+        <!-- welcome message -->
         <h5 class="mb-3"><em style="color: grey; font-style:normal"> <?php
                                                                         if (!empty($welcomeText)) {
                                                                             echo $welcomeText;
@@ -66,6 +48,8 @@ if (isset($_SESSION['welcome'])) {
                                                                         }
                                                                         ?>
         </h5>
+        <!-- welcome message -->
+
         <!-- tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -78,7 +62,7 @@ if (isset($_SESSION['welcome'])) {
                 <a class="nav-link" href="insert_nilai_alternatif.php">Nilai Alternatif</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hasil</a>
+                <a class="nav-link" href="hasil.php">Hasil</a>
             </li>
         </ul>
         <!-- tabs -->
