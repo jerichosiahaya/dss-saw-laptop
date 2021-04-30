@@ -2,7 +2,7 @@
 require_once 'session.php';
 include_once 'header.php';
 require 'config.php';
-$query_kriteria = mysqli_query($conn, "SELECT * FROM `kriteria` where id_pengguna = $id") or die(mysqli_error());
+$query_kriteria = mysqli_query($conn, "SELECT * FROM `kriteria` where id_pengguna = $id") or die(mysqli_error($conn));
 $jumlah_kriteria = mysqli_num_rows($query_kriteria);
 ?>
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
                         <th rowspan="2">Alternatif Laptop</th>
                     <tr>
                         <?php
-                        $kriteria = mysqli_query($conn, "SELECT * FROM `kriteria` WHERE id_pengguna = $id") or die(mysqli_error());
+                        $kriteria = mysqli_query($conn, "SELECT * FROM `kriteria` WHERE id_pengguna = $id") or die(mysqli_error($conn));
                         while ($data = mysqli_fetch_array($kriteria)) {
                         ?>
                             <th>
@@ -100,7 +100,7 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
                         <th rowspan="2">Alternatif Laptop</th>
                     <tr>
                         <?php
-                        $kriteria = mysqli_query($conn, "SELECT * FROM kriteria WHERE id_pengguna = $id2") or die(mysqli_error());
+                        $kriteria = mysqli_query($conn, "SELECT * FROM kriteria WHERE id_pengguna = $id2") or die(mysqli_error($conn));
                         while ($data = mysqli_fetch_array($kriteria)) {
                         ?>
                             <th>
@@ -180,7 +180,7 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
                     <tr>
                         <!-- nama kriteria -->
                         <?php
-                        $kriteria = mysqli_query($conn, "SELECT * FROM `kriteria`  WHERE id_pengguna = $id2") or die(mysqli_error());
+                        $kriteria = mysqli_query($conn, "SELECT * FROM `kriteria`  WHERE id_pengguna = $id2") or die(mysqli_error($conn));
                         while ($data = mysqli_fetch_array($kriteria)) {
                         ?>
                             <th><?php echo $data['nama']; ?></th>

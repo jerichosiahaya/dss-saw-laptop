@@ -56,7 +56,7 @@ $tes = mysqli_fetch_assoc($result1);
 			<tbody>
 				<?php
 				require 'config.php';
-				$query = mysqli_query($conn, "SELECT * FROM `kriteria` WHERE id_pengguna = $id") or die(mysqli_error());
+				$query = mysqli_query($conn, "SELECT * FROM `kriteria` WHERE id_pengguna = $id") or die(mysqli_error($conn));
 				while ($data = mysqli_fetch_array($query)) {
 				?>
 					<tr>

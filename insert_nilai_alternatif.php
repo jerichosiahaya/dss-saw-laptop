@@ -9,7 +9,7 @@ $query4 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 
 $query5 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 5");
 $query6 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 6");
 $query7 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 7");
-$query_kriteria = mysqli_query($conn, "SELECT * FROM `kriteria`") or die(mysqli_error());
+$query_kriteria = mysqli_query($conn, "SELECT * FROM `kriteria`") or die(mysqli_error($conn));
 $jumlah_kriteria = mysqli_num_rows($query_kriteria);
 ?>
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
 
             <tr>
                 <?php
-                $kriteria = mysqli_query($conn, "SELECT * FROM `kriteria` WHERE id_pengguna = $id ") or die(mysqli_error());
+                $kriteria = mysqli_query($conn, "SELECT * FROM `kriteria` WHERE id_pengguna = $id ") or die(mysqli_error($conn));
                 while ($data = mysqli_fetch_array($kriteria)) {
                 ?>
                     <th><?php echo $data['nama']; ?></th>
