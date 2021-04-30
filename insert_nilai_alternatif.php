@@ -1,7 +1,8 @@
 <?php
 require_once 'session.php';
 include_once 'header.php';
-$result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id");
+$result = mysqli_query($conn, "select * FROM alternatif WHERE alternatif.id_alternatif  IN (SELECT id_alternatif FROM nilai_alternatif) AND id_pengguna = $id");
+$result2 = mysqli_query($conn, "select * FROM  alternatif WHERE alternatif.id_alternatif NOT IN (SELECT id_alternatif FROM nilai_alternatif) AND id_pengguna = $id");
 $query1 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 1");
 $query2 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 2");
 $query3 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 3");
@@ -11,6 +12,9 @@ $query6 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 
 $query7 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 7");
 $query_kriteria = mysqli_query($conn, "SELECT * FROM `kriteria`") or die(mysqli_error($conn));
 $jumlah_kriteria = mysqli_num_rows($query_kriteria);
+
+$jumlah = mysqli_num_rows($result2);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +59,21 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
         </ul>
         <!-- tabs -->
 
+    
 
+
+        <ul class="nav nav-pills mb-3 mt-4" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active btn" id="pills-sudah-tab" data-bs-toggle="pill" data-bs-target="#pills-sudah" type="button" role="tab" aria-controls="pills-sudah" aria-selected="true">Sudah Ada Nilai Alternatif</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link btn" id="pills-belum-tab" data-bs-toggle="pill" data-bs-target="#pills-belum" type="button" role="tab" aria-controls="pills-belum" aria-selected="false">Belum ada Nilai Alternatif (<?php echo $jumlah ?>)</button>
+            </li>
+           
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-sudah" role="tabpanel" aria-labelledby="pills-sudah-tab">
         <table class="table mt-4">
             <tr>
                 <th rowspan="2">Alternatif Laptop</th>
@@ -71,7 +89,7 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
             </tr>
 
             <?php
-            $alternatif = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id");
+            $alternatif = mysqli_query($conn, "select * FROM alternatif WHERE alternatif.id_alternatif  IN (SELECT id_alternatif FROM nilai_alternatif) AND id_pengguna = $id");
             while ($data = mysqli_fetch_array($alternatif)) {
             ?>
                 <tr>
@@ -87,6 +105,30 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
             <?php } ?>
 
         </table>
+
+        </div>
+        <div class="tab-pane fade" id="pills-belum" role="tabpanel" aria-labelledby="pills-belum-tab">
+        <table class="table table-hover mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Alternatif Laptop (belum ada nilai alternatif) </th>
+                    <th scope="col"></th>
+                </tr>
+                <?php
+                while ($data = mysqli_fetch_array($result2)) {
+                ?>
+                    <tr>
+                        <td><?php echo $data['nama'] ?></td>
+                        <td><a href="insert_isi_nilai_alternatif.php"><button type="button" class="btn btn-primary">Insert Nilai Alternatif</button></a></td>
+                        
+                    </tr>
+                <?php
+                  
+                }
+                ?>
+        </table>
+
+        </div>
 
         <!-- <table class="table mt-3">
             <thead>
@@ -109,7 +151,11 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
                 ?>
         </table> -->
 
-        <a href="insert_isi_nilai_alternatif.php"><button type="button" class="btn btn-primary">Insert Nilai Alternatif</button></a>
+
+
+
+
+       
         <!-- <a href="update_nilai_alternatif.php"><button type="button" class="btn btn-light">Update Nilai Alternatif</button></a> -->
     </div>
 
