@@ -58,6 +58,10 @@ footer {
     width: 10px;
 }
 
+.text-upper {
+    text-transform: uppercase;
+}
+
 /* RESPONSIVE CODE GOES HERE */
 
 /* Smartphones (portrait and landscape) ----------- */

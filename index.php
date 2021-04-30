@@ -2,9 +2,13 @@
 require_once 'session.php';
 include_once 'header.php';
 $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id");
-
-
-
+if (isset($_SESSION['welcome'])) {
+    $welcomeText = $_SESSION['welcome'];
+}
+// if ($_SESSION['welcome']) {
+//     echo $_SESSION['welcome'];
+//     unset($_SESSION['welcome']);
+// }
 // $queryCheckSUM = "select sum(weight) as total from kriteria where id_pengguna = $id";
 // $result1 = mysqli_query($conn, $queryCheckSUM);
 // $tes = mysqli_fetch_assoc($result1);
@@ -51,7 +55,17 @@ $result = mysqli_query($conn, "SELECT * FROM alternatif WHERE id_pengguna = $id"
 
 
     <div class="container mt-4">
-        <h5 class="mb-3"><em style="color: grey; font-style:normal"> Welcome back, </em><?php echo $username; ?></h5>
+        <h5 class="mb-3"><em style="color: grey; font-style:normal"> <?php
+                                                                        if (!empty($welcomeText)) {
+                                                                            echo $welcomeText;
+                                                                            echo ",";
+                                                                            echo " ";
+                                                                            echo "</em>";
+                                                                            echo $username;
+                                                                            unset($_SESSION['welcome']);
+                                                                        }
+                                                                        ?>
+        </h5>
         <!-- tabs -->
         <ul class="nav nav-tabs">
             <li class="nav-item">

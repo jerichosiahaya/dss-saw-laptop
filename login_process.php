@@ -12,6 +12,7 @@ if ($username_db == $username && password_verify($password, $password_db)) {
     session_start();
     $_SESSION['username'] = $username_db;
     $_SESSION['id'] = $id;
+    $_SESSION['welcome'] = "Welcome back";
     header('Location: index.php');
 } else {
     header('Location: login.php');
