@@ -4,6 +4,8 @@ include_once 'header.php';
 require 'config.php';
 $query_kriteria = mysqli_query($conn, "SELECT * FROM `kriteria` where id_pengguna = $id") or die(mysqli_error($conn));
 $jumlah_kriteria = mysqli_num_rows($query_kriteria);
+$result2 = mysqli_query($conn, "select * FROM  alternatif WHERE alternatif.id_alternatif NOT IN (SELECT id_alternatif FROM nilai_alternatif) AND id_pengguna = $id");
+$jumlahBelumIsi = mysqli_num_rows($result2);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,6 +53,19 @@ $jumlah_kriteria = mysqli_num_rows($query_kriteria);
                 <button class="nav-link btn" id="pills-result-tab" data-bs-toggle="pill" data-bs-target="#pills-result" type="button" role="tab" aria-controls="pills-result" aria-selected="false">Hasil Rank</button>
             </li>
         </ul>
+
+
+        <?php
+        if ($jumlahBelumIsi > 0) {
+        ?>
+            <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
+                Masih terdapat <b> <?php echo $jumlahBelumIsi; ?> alternatif (laptop) </b> yang belum diisi nilai kriterianya, silahkan <a href="insert_isi_nilai_alternatif.php">isi nilai kriterianya</a> terlebih dahulu agar hasil ranknya dapat diketahui. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php
+        } ?>
+
+
+
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <!-- alternatif dan kriteria, belum ada perhitungan -->

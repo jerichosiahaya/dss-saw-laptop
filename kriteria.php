@@ -4,6 +4,8 @@ include_once 'header.php';
 $queryCheckSUM = "select sum(weight) as total from kriteria where id_pengguna = $id";
 $result1 = mysqli_query($conn, $queryCheckSUM);
 $tes = mysqli_fetch_assoc($result1);
+$result2 = mysqli_query($conn, "select * FROM  alternatif WHERE alternatif.id_alternatif NOT IN (SELECT id_alternatif FROM nilai_alternatif) AND id_pengguna = $id");
+$jumlahBelumIsi = mysqli_num_rows($result2);
 ?>
 
 
@@ -38,7 +40,14 @@ $tes = mysqli_fetch_assoc($result1);
 				<a class="nav-link" href="insert_nilai_alternatif.php">Nilai Alternatif</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="hasil.php">Hasil</a>
+				<?php
+				if ($jumlahBelumIsi > 0) {
+					$classDisabled = "disabled";
+				} else {
+					$classDisabled = "";
+				}
+				?>
+				<a class="nav-link <?php echo $classDisabled; ?>" href="hasil.php">Hasil</a>
 			</li>
 		</ul>
 		<!-- tabs -->
@@ -63,7 +72,7 @@ $tes = mysqli_fetch_assoc($result1);
 						<td><?php echo $data['nama'] ?></td>
 						<td><?php echo $data['sifat'] ?></td>
 						<td><?php echo $data['weight'] ?></td>
-						<td><button class="btn btn-secondary" data-bs-toggle="modal" type="button" data-bs-target="#update_modal<?php echo $data['id_kriteria'] ?>"><span class="glyphicon glyphicon-edit"></span> <i class="fas fa-edit"></i> EDIT</button></td>
+						<td><button class="btn btn-secondary" data-bs-toggle="modal" type="button" data-bs-target="#update_modal<?php echo $data['id_kriteria'] ?>"><span class="glyphicon glyphicon-edit"></span> <i class="fas fa-edit"></i> Edit</button></td>
 					</tr>
 				<?php
 
@@ -74,7 +83,7 @@ $tes = mysqli_fetch_assoc($result1);
 		</table>
 		<p>Total weight: <b id="totalWgth"></b></p>
 		<div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
-			Total Weight harus Memiliki nilai 1.
+			Total <b>weight</b> harus memiliki nilai 1.
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
 	</div>

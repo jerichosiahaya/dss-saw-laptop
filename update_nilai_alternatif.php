@@ -15,6 +15,8 @@ $query2 =  mysqli_query($conn, "select * from alternatif where alternatif.id_alt
 $query3 = mysqli_query($conn, "select nilai_alternatif.id_nilai_alternatif, nilai_alternatif.id_kriteria, nilai_alternatif.id_nilai, nilai_kriteria.keterangan from nilai_alternatif, nilai_kriteria where nilai_alternatif.id_nilai = nilai_kriteria.id_nilai and id_alternatif = $id_alternatif");
 $result_query2 = mysqli_fetch_assoc($query2);
 $result_query3 = mysqli_fetch_all($query3);
+$result2 = mysqli_query($conn, "select * FROM  alternatif WHERE alternatif.id_alternatif NOT IN (SELECT id_alternatif FROM nilai_alternatif) AND id_pengguna = $id");
+$jumlahBelumIsi = mysqli_num_rows($result2);
 // echo $result_query3['keterangan'][4];
 ?>
 <!DOCTYPE html>
@@ -53,7 +55,14 @@ $result_query3 = mysqli_fetch_all($query3);
                 <a class="nav-link active" aria-current="page" href="insert_nilai_alternatif.php">Nilai Alternatif</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="hasil.php">Hasil</a>
+                <?php
+                if ($jumlahBelumIsi > 0) {
+                    $classDisabled = "disabled";
+                } else {
+                    $classDisabled = "";
+                }
+                ?>
+                <a class="nav-link <?php echo $classDisabled; ?>" href="hasil.php">Hasil</a>
             </li>
         </ul>
         <!-- tabs -->
@@ -184,7 +193,7 @@ $result_query3 = mysqli_fetch_all($query3);
 
             <button type="submit" name="update" class="btn btn-primary mt-4">Submit</button>
         </form>
-        <button id="tes">TEST</button>
+        <!-- <button id="tes">TEST</button> -->
 
     </div>
 

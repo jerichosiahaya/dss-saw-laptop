@@ -1,7 +1,9 @@
 <?php
-require 'header.php';
-require 'session.php';
+require '../header.php';
+require '../config.php';
+require '../session.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +11,11 @@ require 'session.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Laptopp</title>
+    <title>How To Use | Laptopp</title>
 </head>
 
 <body>
 
-    <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -25,9 +26,9 @@ require 'session.php';
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="index.php">Home</a>
-                    <a class="nav-link" href="how-to-use">How To Use</a>
-                    <a class="nav-link active" aria-current="page" href="#">About</a>
+                    <a class="nav-link" href="../index.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="#">How To Use</a>
+                    <a class="nav-link" aria-current="page" href="../about.php">About</a>
                     <a class="nav-link" href="https://github.com/jerichosiahaya/dss-saw-laptop">Github</a>
                 </div>
             </div>
@@ -36,16 +37,13 @@ require 'session.php';
             </span>
         </div>
     </nav>
-    <!-- navbar -->
 
     <div class="container mt-4">
-        <h3>About</h3>
+        <h3>How To Use</h3>
         <hr>
-        <p><b>Laptopp</b> is a decision support system website</p>
-        <p>Developed by <a href="">Jericho Siahaya</a> & <a href="">Ricky Ng</a></p>
+        <h5>1. Tambah Alternatif</h5>
+        <p></p>
     </div>
 </body>
-
-<?php require 'footer.php'; ?>
 
 </html>

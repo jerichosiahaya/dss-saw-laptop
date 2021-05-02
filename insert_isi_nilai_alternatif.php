@@ -2,7 +2,6 @@
 require_once 'session.php';
 include_once 'header.php';
 $result = mysqli_query($conn, "select * FROM  alternatif WHERE alternatif.id_alternatif NOT IN (SELECT id_alternatif FROM nilai_alternatif) AND id_pengguna = $id");
-
 $query1 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 1");
 $query2 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 2");
 $query3 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 3");
@@ -10,6 +9,11 @@ $query4 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 
 $query5 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 5");
 $query6 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 6");
 $query7 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 7");
+$result2 = mysqli_query($conn, "select * FROM  alternatif WHERE alternatif.id_alternatif NOT IN (SELECT id_alternatif FROM nilai_alternatif) AND id_pengguna = $id");
+$jumlahBelumIsi = mysqli_num_rows($result2);
+if ($jumlahBelumIsi <= 0) {
+    header('Location: insert_nilai_alternatif.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,12 +80,17 @@ $query7 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 
         </ul>
         <!-- tabs -->
 
+        <!-- breadcumbs -->
+        <nav aria-label="breadcrumb" class="mt-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="insert_nilai_alternatif.php">Nilai Alternatif</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Insert Nilai Alternatif</li>
+            </ol>
+        </nav>
+        <!-- breadcumbs -->
+
         <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
-            Hanya menampilkan alternatif laptop yang belum memiliki nilai alternatif.
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
-            Masukkan nilai alternatif yang sesuai dengan laptop atau yang paling mendekati.
+            Hanya menampilkan alternatif laptop yang belum memiliki nilai alternatif. Silahkan masukkan nilai kriteria yang sesuai dengan spesifikasi alternatif (laptop) atau yang paling mendekati.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <form action="" id="option_laptop" name="option_laptop" class="justify-content-center">
@@ -234,7 +243,7 @@ $query7 = mysqli_query($conn, "SELECT * FROM nilai_kriteria WHERE id_kriteria = 
                         <!-- layar -->
                     </div>
 
-                    <input type="submit" class="btn btn-primary mt-3" id="submit" value="Submit">
+                    <input type="submit" class="btn btn-primary mt-4" style="width: 10%;" id="submit" value="Submit">
 
                 </div>
 

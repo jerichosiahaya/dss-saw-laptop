@@ -12,6 +12,9 @@ if (isset($_SESSION['welcome'])) {
 // $queryCheckSUM = "select sum(weight) as total from kriteria where id_pengguna = $id";
 // $result1 = mysqli_query($conn, $queryCheckSUM);
 // $tes = mysqli_fetch_assoc($result1);
+
+$result2 = mysqli_query($conn, "select * FROM  alternatif WHERE alternatif.id_alternatif NOT IN (SELECT id_alternatif FROM nilai_alternatif) AND id_pengguna = $id");
+$jumlahBelumIsi = mysqli_num_rows($result2);
 ?>
 
 <!DOCTYPE html>
@@ -62,14 +65,21 @@ if (isset($_SESSION['welcome'])) {
                 <a class="nav-link" href="insert_nilai_alternatif.php">Nilai Alternatif</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="hasil.php">Hasil</a>
+                <?php
+                if ($jumlahBelumIsi > 0) {
+                    $classDisabled = "disabled";
+                } else {
+                    $classDisabled = "";
+                }
+                ?>
+                <a class="nav-link <?php echo $classDisabled; ?>" href="hasil.php">Hasil</a>
             </li>
         </ul>
         <!-- tabs -->
 
 
-        <div class="alert alert-warning alert-dismissible fade show mt-4" role="alert">
-            Masukkan merk laptop yang diinginkan<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="alert alert-primary alert-dismissible fade show mt-4" role="alert">
+            Masukkan alternatif atau merk laptop.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         <table class="table table-hover mt-3">
             <thead>
@@ -89,11 +99,12 @@ if (isset($_SESSION['welcome'])) {
                 }
                 ?>
         </table>
-        <button class='btn btn-secondary' id="tambah">Add</button>
+        <button class='btn btn-secondary' id="tambah"><i class="fas fa-plus"></i> Add</button>
         <div class="toggle-forms">
             <form action="" id="save" method="post">
+                <hr>
                 <label>Masukkan nama laptop:</label>
-                <input type="text" id="nama" name="nama" placeholder="Nama Laptop" required>
+                <input class="form-control mt-2 mb-2" style="width: 50%;" type="text" id="nama" name="nama" placeholder="Nama Laptop" required>
                 <button type="submit" class='btn btn-success' id="simpan" name="submit">Submit</button>
             </form>
         </div>

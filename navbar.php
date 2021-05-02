@@ -9,6 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="how-to-use">How To Use</a>
                 <a class="nav-link" href="about.php">About</a>
                 <a class="nav-link" href="https://github.com/jerichosiahaya/dss-saw-laptop">Github</a>
             </div>
