@@ -1,55 +1,8 @@
--- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Apr 19, 2021 at 04:47 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `saw-laptop`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `alternatif`
---
-
 CREATE TABLE `alternatif` (
   `id_alternatif` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
   `id_pengguna` int(11) NOT NULL 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `alternatif`
---
-
-INSERT INTO `alternatif` (`id_alternatif`, `nama`, `id_pengguna`) VALUES
-(8, 'asdasd', 1),
-(9, 'asdasdff', 1),
-(10, 'ggg', 1),
-(11, 'hdf', 1),
-(12, 'jancoeg', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kriteria`
---
 
 CREATE TABLE `kriteria` (
   `id` int(11) NOT NULL,
@@ -60,25 +13,6 @@ CREATE TABLE `kriteria` (
   `id_pengguna` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `kriteria`
---
-
-INSERT INTO `kriteria` (`id`, `id_kriteria`, `nama`, `sifat`, `weight`, `id_pengguna`) VALUES
-(1, 1, 'Harga', 'Cost', 0.2, 1),
-(2, 2, 'Processor', 'benefit', 0.15, 1),
-(3, 3, 'RAM', 'benefit', 0.15, 1),
-(4, 4, 'Storage', 'benefit', 0.15, 1),
-(5, 5, 'Battery Life', 'benefit', 0.1, 1),
-(6, 6, 'VGA Card', 'benefit', 0.15, 1),
-(7, 7, 'Layar', 'benefit', 0.1, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nilai_alternatif`
---
-
 CREATE TABLE `nilai_alternatif` (
   `id_nilai_alternatif` int(11) NOT NULL,
   `id_alternatif` int(11) NOT NULL,
@@ -86,63 +20,12 @@ CREATE TABLE `nilai_alternatif` (
   `id_nilai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `nilai_alternatif`
---
-
-INSERT INTO `nilai_alternatif` (`id_nilai_alternatif`, `id_alternatif`, `id_kriteria`, `id_nilai`) VALUES
-(1, 9, 1, 2),
-(2, 9, 2, 8),
-(3, 9, 3, 12),
-(4, 9, 4, 16),
-(5, 9, 5, 21),
-(6, 9, 6, 24),
-(7, 9, 7, 28),
-(8, 10, 1, 3),
-(9, 10, 2, 9),
-(10, 10, 3, 12),
-(11, 10, 4, 17),
-(12, 10, 5, 21),
-(13, 10, 6, 25),
-(14, 10, 7, 29),
-(15, 8, 1, 4),
-(16, 8, 2, 7),
-(17, 8, 3, 12),
-(18, 8, 4, 17),
-(19, 8, 5, 21),
-(20, 8, 6, 25),
-(21, 8, 7, 30),
-(22, 11, 1, 2),
-(23, 11, 2, 8),
-(24, 11, 3, 11),
-(25, 11, 4, 16),
-(26, 11, 5, 19),
-(27, 11, 6, 24),
-(28, 11, 7, 29),
-(29, 12, 1, 2),
-(30, 12, 2, 7),
-(31, 12, 3, 11),
-(32, 12, 4, 16),
-(33, 12, 5, 20),
-(34, 12, 6, 24),
-(35, 12, 7, 28);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nilai_kriteria`
---
-
 CREATE TABLE `nilai_kriteria` (
   `id_nilai` int(11) NOT NULL,
   `id_kriteria` int(11) NOT NULL,
   `bobot` float NOT NULL,
   `keterangan` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `nilai_kriteria`
---
 
 INSERT INTO `nilai_kriteria` (`id_nilai`, `id_kriteria`, `bobot`, `keterangan`) VALUES
 (1, 1, 1, '3 - 5 juta'),
@@ -177,28 +60,11 @@ INSERT INTO `nilai_kriteria` (`id_nilai`, `id_kriteria`, `bobot`, `keterangan`) 
 (30, 7, 14, '14 inch'),
 (31, 7, 15, '15 inch');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `pengguna`
---
-
 CREATE TABLE `pengguna` (
   `id_pengguna` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pengguna`
---
-
-INSERT INTO `pengguna` (`id_pengguna`, `username`, `password`) VALUES
-(1, 'admin', '$2y$10$adEF5alThTqBKUpm0Bm0GuZg9HapKklmbeuMNA6Tx0ratl2JlApyS');
-
---
--- Indexes for dumped tables
---
 
 --
 -- Indexes for table `alternatif`
@@ -242,25 +108,25 @@ ALTER TABLE `pengguna`
 -- AUTO_INCREMENT for table `alternatif`
 --
 ALTER TABLE `alternatif`
-  MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_alternatif` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `nilai_alternatif`
 --
 ALTER TABLE `nilai_alternatif`
-  MODIFY `id_nilai_alternatif` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_nilai_alternatif` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `nilai_kriteria`
 --
 ALTER TABLE `nilai_kriteria`
-  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_nilai` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -285,7 +151,3 @@ ALTER TABLE `nilai_alternatif`
   ADD CONSTRAINT `nilai_alternatif_ibfk_1` FOREIGN KEY (`id_alternatif`) REFERENCES `alternatif` (`id_alternatif`),
   ADD CONSTRAINT `nilai_alternatif_ibfk_3` FOREIGN KEY (`id_nilai`) REFERENCES `nilai_kriteria` (`id_nilai`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

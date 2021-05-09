@@ -31,11 +31,11 @@ $jumlahBelumIsi = mysqli_num_rows($result2);
 
 <body>
 
-    <!-- <pre>
+    <pre>
 <?php
-// print_r($result_query3[0]);
+print_r($result_query3[0]);
 ?>
-    </pre> -->
+    </pre>
 
     <!-- navbar -->
     <?php require 'navbar.php'; ?>
@@ -93,7 +93,7 @@ $jumlahBelumIsi = mysqli_num_rows($result2);
                 <?php
                 while ($data = mysqli_fetch_array($queryHarga)) {
                 ?>
-                    <option value="<?php echo $data['id_nilai']; ?>" hidden selected="true"><?php echo $result_query3[0][3]; ?></option>
+                    <option value="<?php echo $result_query3[0][2]; ?>" hidden selected="true"><?php echo $result_query3[0][3]; ?></option>
                     <option value="<?php echo $data['id_nilai']; ?>"><?php echo $data['keterangan']; ?></option>
                 <?php
                 }
@@ -108,7 +108,7 @@ $jumlahBelumIsi = mysqli_num_rows($result2);
                 <?php
                 while ($data = mysqli_fetch_array($queryProcessor)) {
                 ?>
-                    <option value="<?php echo $data['id_nilai']; ?>" hidden selected="true"><?php echo $result_query3[1][3]; ?></option>
+                    <option value="<?php echo $result_query3[1][2]; ?>" hidden selected="true"><?php echo $result_query3[1][3]; ?></option>
                     <option value="<?php echo $data['id_nilai']; ?>"><?php echo $data['keterangan']; ?></option>
                 <?php
                 }
@@ -123,7 +123,7 @@ $jumlahBelumIsi = mysqli_num_rows($result2);
                 <?php
                 while ($data = mysqli_fetch_array($queryRAM)) {
                 ?>
-                    <option value="<?php echo $data['id_nilai']; ?>" hidden selected="true"><?php echo $result_query3[2][3]; ?></option>
+                    <option value="<?php echo $result_query3[2][2]; ?>" hidden selected="true"><?php echo $result_query3[2][3]; ?></option>
                     <option value="<?php echo $data['id_nilai']; ?>"><?php echo $data['keterangan']; ?></option>
                 <?php
                 }
@@ -138,7 +138,7 @@ $jumlahBelumIsi = mysqli_num_rows($result2);
                 <?php
                 while ($data = mysqli_fetch_array($queryHDD)) {
                 ?>
-                    <option value="<?php echo $data['id_nilai']; ?>" hidden selected="true"><?php echo $result_query3[3][3]; ?></option>
+                    <option value="<?php echo $result_query3[3][2]; ?>" hidden selected="true"><?php echo $result_query3[3][3]; ?></option>
                     <option value="<?php echo $data['id_nilai']; ?>"><?php echo $data['keterangan']; ?></option>
                 <?php
                 }
@@ -153,7 +153,7 @@ $jumlahBelumIsi = mysqli_num_rows($result2);
                 <?php
                 while ($data = mysqli_fetch_array($queryBattery)) {
                 ?>
-                    <option value="<?php echo $data['id_nilai']; ?>" hidden selected="true"><?php echo $result_query3[4][3]; ?></option>
+                    <option value="<?php echo $result_query3[4][2]; ?>" hidden selected="true"><?php echo $result_query3[4][3]; ?></option>
                     <option value="<?php echo $data['id_nilai']; ?>"><?php echo $data['keterangan']; ?></option>
                 <?php
                 }
@@ -168,7 +168,7 @@ $jumlahBelumIsi = mysqli_num_rows($result2);
                 <?php
                 while ($data = mysqli_fetch_array($queryVGA)) {
                 ?>
-                    <option value="<?php echo $data['id_nilai']; ?>" hidden selected="true"><?php echo $result_query3[5][3]; ?></option>
+                    <option value="<?php echo $result_query3[5][2]; ?>" hidden selected="true"><?php echo $result_query3[5][3]; ?></option>
                     <option value="<?php echo $data['id_nilai']; ?>"><?php echo $data['keterangan']; ?></option>
                 <?php
                 }
@@ -183,7 +183,7 @@ $jumlahBelumIsi = mysqli_num_rows($result2);
                 <?php
                 while ($data = mysqli_fetch_array($queryLayar)) {
                 ?>
-                    <option value="<?php echo $data['id_nilai']; ?>" hidden selected="true"><?php echo $result_query3[6][3]; ?></option>
+                    <option value="<?php echo $result_query3[6][2]; ?>" hidden selected="true"><?php echo $result_query3[6][3]; ?></option>
                     <option value="<?php echo $data['id_nilai']; ?>"><?php echo $data['keterangan']; ?></option>
                 <?php
                 }
@@ -194,6 +194,7 @@ $jumlahBelumIsi = mysqli_num_rows($result2);
             <button type="submit" name="update" class="btn btn-primary mt-4">Submit</button>
         </form>
         <!-- <button id="tes">TEST</button> -->
+
 
     </div>
 
