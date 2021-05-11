@@ -1,6 +1,6 @@
 <?php
-require 'header.php';
 require 'session.php';
+require 'header.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@ require 'session.php';
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="index.php">Home</a>
-                    <a class="nav-link" href="how-to-use">How To Use</a>
+                    <a class="nav-link" href="howtouse.php">How To Use</a>
                     <a class="nav-link active" aria-current="page" href="#">About</a>
                     <a class="nav-link" href="https://github.com/jerichosiahaya/dss-saw-laptop">Github</a>
                 </div>
@@ -41,8 +41,12 @@ require 'session.php';
     <div class="container mt-4">
         <h3>About</h3>
         <hr>
-        <p><b>Laptopp</b> is a decision support system website</p>
-        <p>Developed by <a href="">Jericho Siahaya</a> & <a href="">Ricky Ng</a></p>
+        <img src="https://i.ibb.co/mRgTp8V/laptopp.png" class="img-fluid" alt="laptopp">
+        <p><b>Laptopp</b> merupakan website pembantu pengambil keputusan (DSS) yang menggunakan metode simple additive weighting yang merupakan salah satu Metode Fuzzy Multiple Attribute Decision Making (FMADM) yang mampu menyelesaikan masalah multiple attribute decision making dengan cara membobotkan semua kriteria dan alternatif yang menghasilkan nilai referensi yang tepat.</p>
+        <p>Pada website ini metode SAW dipakai untuk mengembangkan website yang dapat membantu mengambil keputusan untuk memilih laptop terbaik dari daftar laptop yang telah dimasukkan. Perhitungan atau kalkulasi dilakukan dengan menghitung bobot dari tiap spesifikasi laptop hingga harganya.</p>
+        <p>Contact us: project.laptopp@gmail.com</p>
+        <p>Developed by <a href="https://www.linkedin.com/in/jerichosiahaya/">Jericho Siahaya</a> & <a href="https://www.linkedin.com/in/rickyreplying/">Ricky Ng</a>
+        </p>
     </div>
 </body>
 
